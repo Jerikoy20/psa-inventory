@@ -1,0 +1,47 @@
+{
+    "name": "TransactionLog",
+    "type": "object",
+    "properties": {
+        "request_id": {
+            "type": "string"
+        },
+        "equipment_id": {
+            "type": "string"
+        },
+        "equipment_name": {
+            "type": "string"
+        },
+        "action": {
+            "type": "string",
+            "enum": [
+                "Request Submitted",
+                "Request Approved",
+                "Request Rejected",
+                "Equipment Released",
+                "Equipment Returned",
+                "Issue Flagged",
+                "Record Updated",
+                "Overdue Notice Sent"
+            ]
+        },
+        "performed_by": {
+            "type": "string"
+        },
+        "performed_by_name": {
+            "type": "string"
+        },
+        "details": {
+            "type": "string"
+        },
+        "previous_value": {
+            "type": "string"
+        },
+        "new_value": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "action",
+        "performed_by"
+    ]
+}

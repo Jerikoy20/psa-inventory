@@ -1,0 +1,106 @@
+{
+    "name": "BorrowRequest",
+    "type": "object",
+    "properties": {
+        "equipment_id": {
+            "type": "string",
+            "description": "Reference to equipment"
+        },
+        "equipment_name": {
+            "type": "string"
+        },
+        "equipment_type": {
+            "type": "string"
+        },
+        "borrower_email": {
+            "type": "string"
+        },
+        "borrower_name": {
+            "type": "string"
+        },
+        "purpose": {
+            "type": "string",
+            "description": "Reason for borrowing"
+        },
+        "request_date": {
+            "type": "string",
+            "format": "date"
+        },
+        "needed_from": {
+            "type": "string",
+            "format": "date"
+        },
+        "needed_until": {
+            "type": "string",
+            "format": "date"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "Pending",
+                "Approved",
+                "Rejected",
+                "Released",
+                "Returned",
+                "Overdue"
+            ],
+            "default": "Pending"
+        },
+        "condition_on_release": {
+            "type": "string",
+            "enum": [
+                "Excellent",
+                "Good",
+                "Fair",
+                "Poor"
+            ]
+        },
+        "condition_on_return": {
+            "type": "string",
+            "enum": [
+                "Excellent",
+                "Good",
+                "Fair",
+                "Poor"
+            ]
+        },
+        "released_date": {
+            "type": "string",
+            "format": "date"
+        },
+        "returned_date": {
+            "type": "string",
+            "format": "date"
+        },
+        "released_by": {
+            "type": "string"
+        },
+        "received_by": {
+            "type": "string"
+        },
+        "admin_remarks": {
+            "type": "string"
+        },
+        "return_remarks": {
+            "type": "string"
+        },
+        "issue_flag": {
+            "type": "string",
+            "enum": [
+                "None",
+                "Damaged",
+                "Lost",
+                "Missing Parts"
+            ],
+            "default": "None"
+        }
+    },
+    "required": [
+        "equipment_id",
+        "borrower_email",
+        "borrower_name",
+        "purpose",
+        "needed_from",
+        "needed_until"
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "name": "Equipment",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Equipment name"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "Laptop",
+                "Tablet",
+                "PC",
+                "Switch",
+                "Router",
+                "Modem",
+                "CPU",
+                "Printer",
+                "Projector",
+                "Speaker",
+                "Access Point"
+            ],
+            "description": "Type of equipment"
+        },
+        "serial_number": {
+            "type": "string",
+            "description": "Unique serial number"
+        },
+        "property_number": {
+            "type": "string",
+            "description": "PSA property number"
+        },
+        "brand": {
+            "type": "string"
+        },
+        "model": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "Available",
+                "Borrowed",
+                "Reserved",
+                "Under Maintenance",
+                "Condemned"
+            ],
+            "default": "Available"
+        },
+        "condition": {
+            "type": "string",
+            "enum": [
+                "Excellent",
+                "Good",
+                "Fair",
+                "Poor"
+            ],
+            "default": "Good"
+        },
+        "location": {
+            "type": "string",
+            "description": "Storage location"
+        },
+        "notes": {
+            "type": "string"
+        },
+        "image_url": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "name",
+        "type",
+        "serial_number",
+        "property_number"
+    ]
+}
