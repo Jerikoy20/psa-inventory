@@ -102,6 +102,26 @@ app.post('/api/register', (req, res) => {
 });
 
 app.get('/api/users', (req, res) => res.json(users));
+// --- ADD THIS DELETE ROUTE ---
+app.delete('/api/users/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  
+  // Prevent deleting the main Admin/Owner for safety
+  const userToDelete = users.find(u => u.id === id);
+  if (userToDelete && userToDelete.email === 'jerikoy2020@gmail.com') {
+    return res.status(403).json({ error: "Cannot delete the Owner account." });
+  }
+
+  // Filter out the user to delete them
+  const initialLength = users.length;
+  users = users.filter(u => u.id !== id);
+
+  if (users.length < initialLength) {
+    res.json({ message: "User deleted successfully" });
+  } else {
+    res.status(404).json({ error: "User not found" });
+  }
+});
 app.get('/api/dashboard', (req, res) => res.json(getDashboardData()));
 app.get('/api/requests', (req, res) => res.json(requests));
 app.patch('/api/requests/:id', (req, res) => {
